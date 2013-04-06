@@ -89,10 +89,10 @@ module RouteTranslator
 
         conditions[:request_method] = request_method_array(conditions[:request_method]) if conditions[:request_method]
 
-        requirements = route.requirements.dup.merge!(LOCALE_PARAM_KEY => locale)
-        defaults = route.defaults.dup.merge LOCALE_PARAM_KEY => locale
+       # requirements = route.requirements.dup.merge!(LOCALE_PARAM_KEY => locale)
+       # defaults = route.defaults.dup.merge LOCALE_PARAM_KEY => locale
 
-        new_name = "#{route.name}_#{locale_suffix}" if route.name
+        new_name = "#{route.name}_#{locale_suffix(locale)}" if route.name
 
         [route.app, conditions, requirements, defaults, new_name]
       end
