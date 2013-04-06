@@ -61,7 +61,7 @@ module RouteTranslator
           ROUTE_HELPER_CONTAINER.each do |helper_container|
             helper_container.send :define_method, new_helper_name do |*args|
               if respond_to? "#{old_name}_#{locale_suffix(I18n.locale)}_#{suffix}"
-                send "#{old_name}_#{locale_suffix(I18n.locale)}_#{suffix}", *args
+                send "#{old_name}_#{suffix}", *args
               else
                 send "#{old_name}_#{locale_suffix(I18n.default_locale)}_#{suffix}", *args
               end
